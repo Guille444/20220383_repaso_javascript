@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos</title>
+    <!-- Agrega los estilos de Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container bg-light">
+        <h1 class="text-center mt-4">Deportistas</h1>
+        <div class="row" id="userCardsContainer">
+            <!-- Los cards se agregarán aquí dinámicamente -->
+        </div>
+    </div>
+
+    <script>
+        const users = [
+            {
+                name: 'Cristiano Ronaldo',
+                avatar: './img/cr7.jpeg',
+            },
+            {
+                name: 'Leonel Messi',
+                avatar: './img/messi.jpeg',
+            },
+            {
+                name: 'Jude Bellingham',
+                avatar: './img/bellingham.jpg',
+            },
+            {
+                name: 'Kylian Mbappé',
+                avatar: './img/mbappe.jpg',
+            },
+            {
+                name: 'Thibaut Courtois',
+                avatar: './img/courtois.jpg',
+            },
+            {
+                name: 'Toni Kroos',
+                avatar: './img/kroos.jpeg',
+            },
+            {
+                name: 'Antonio Rüdiger',
+                avatar: './img/rudiger.jpeg',
+            },
+            {
+                name: 'Luka Modrić',
+                avatar: './img/modric.jpeg',
+            },
+            {
+                name: 'Rodrygo',
+                avatar: './img/rodry.jpeg',
+            },
+            {
+                name: 'Vinícius Júnior',
+                avatar: './img/vini.jpeg',
+            },
+        ];
+
+        // Obtener el contenedor donde se mostrarán los cards
+        const userCardsContainer = document.getElementById('userCardsContainer');
+
+        // Iterar sobre el array de usuarios
+        users.forEach(user => {
+            // Crear un elemento div para el card de Bootstrap
+            const card = document.createElement('div');
+            card.classList.add('col-md-3', 'mb-4');
+
+            // Configurar el contenido del card
+            card.innerHTML = `
+                <div class="card text-center mt-3">
+                    <div class="justify-content-center">
+                        <img src="${user.avatar}" class="mt-3" alt="${user.name}" width="200" height="175">
+                        <div class="card-body">
+                        <h5 class="card-title">${user.name}</h5>
+                        </div>
+                    </div>
+                </div>
+    `;
+            // Agregar el card al contenedor
+            userCardsContainer.appendChild(card);
+        });
+    </script>
+
+</body>
+
+</html>
